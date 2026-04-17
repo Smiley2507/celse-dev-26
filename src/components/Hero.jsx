@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { RiExternalLinkLine } from '@remixicon/react'
+import CelseVector from './CelseVector'
 
 const Hero = () => {
   return (
@@ -64,7 +65,7 @@ const Hero = () => {
       >
          <motion.div
             animate={{
-              y: [-15, 15, -15],
+              y: [-10, 10, -10],
             }}
             transition={{
               duration: 8,
@@ -73,18 +74,9 @@ const Hero = () => {
             }}
             className="relative lg:mr-10"
          >
-             {/* Light mode illustration */}
-             <img 
-              src="/developer-light-boy.png?v=3" 
-              alt="Developer" 
-              className="max-w-full lg:max-w-none h-auto drop-shadow-2xl w-[450px] md:w-[650px] lg:w-[750px] xl:w-[650px] lg:scale-100 xl:scale-100 origin-right object-contain dark:hidden"
-             />
-             
-             {/* Dark mode illustration */}
-             <img 
-              src="/developer-dark.png" 
-              alt="Night Developer" 
-              className="max-w-full lg:max-w-none h-auto drop-shadow-2xl opacity-95 w-[450px] md:w-[650px] lg:w-[750px] xl:w-[650px] lg:scale-100 xl:scale-100 origin-right object-contain hidden dark:block"
+             {/* Theme-aware Vector Illustration */}
+             <CelseVector 
+              className="max-w-full lg:max-w-none h-auto drop-shadow-2xl w-[400px] md:w-[500px] lg:w-[550px] xl:w-[600px] lg:scale-110 xl:scale-110 origin-right object-contain text-light-text-primary dark:text-dark-text-primary opacity-90 transition-colors duration-500 mb-20"
              />
 
              {/* Subtle glow behind the illustration for dark mode */}
