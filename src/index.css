@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* ── Use class-based dark mode (not OS media query) ─────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sora: "Sora", sans-serif;
+  
+  --color-accent: #3B82F6;
+  --color-accent-hover: #2563EB;
+  
+  /* Light Mode — pure white, almost no blue */
+  --color-light-bg: #FFFFFF;
+  --color-light-surface: #FAFAFA;
+  --color-light-text-primary: #0A0A0A;
+  --color-light-text-secondary: #6B7280;
+  --color-light-border: #E5E7EB;
+  --color-light-border-strong: #D1D5DB;
+  
+  /* Dark Mode */
+  --color-dark-bg: #0B1120;
+  --color-dark-surface: #111827;
+  --color-dark-text-primary: #E5E7EB;
+  --color-dark-text-secondary: #9CA3AF;
+  --color-dark-border: #1E293B;
+  --color-dark-border-strong: #2D3748;
+
+  /* Aliases for backward compat */
+  --color-primary-blue: #3B82F6;
+  --color-primary-hover: #2563EB;
+  --color-light-secondary: #FAFAFA;
+  --color-dark-secondary: #111827;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    @apply bg-light-bg text-light-text-primary dark:bg-dark-bg dark:text-dark-text-primary font-sora selection:bg-accent/20;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-light-text-primary dark:text-dark-text-primary;
+  }
+
+  p {
+    @apply text-light-text-secondary dark:text-dark-text-secondary;
+  }
+}
+
+@layer utilities {
+  /* ── Grain overlay ─────────────────────────────── */
+  .grain-overlay {
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background: transparent url('https://grainy-gradients.vercel.app/noise.svg') repeat;
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 9999;
+    animation: grain 8s steps(10) infinite;
+  }
+
+  .dark .grain-overlay {
+    opacity: 0.06;
+  }
+
+  /* ── Full-page grid background ─────────────────── */
+  .page-grid {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-size: 48px 48px;
+    background-image:
+      linear-gradient(to right, #000 1px, transparent 1px),
+      linear-gradient(to bottom, #000 1px, transparent 1px);
+    opacity: 0.03;
+  }
+
+  .dark .page-grid {
+    background-image:
+      linear-gradient(to right, #fff 1px, transparent 1px),
+      linear-gradient(to bottom, #fff 1px, transparent 1px);
+    opacity: 0.04;
+  }
+
+  /* ── Corner grid bracket decoration ───────────────
+     Usage: wrap section content with <div class="corner-grid">
+     It injects grid-line brackets at top-left and bottom-right.
+  ── */
+  .corner-grid {
+    position: relative;
+  }
+
+  .corner-grid::before,
+  .corner-grid::after {
+    content: '';
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background-image:
+      linear-gradient(to right, currentColor 1px, transparent 1px),
+      linear-gradient(to bottom, currentColor 1px, transparent 1px);
+    background-size: 16px 16px;
+    opacity: 0.12;
+    color: #6B7280;
+    pointer-events: none;
+  }
+
+  .dark .corner-grid::before,
+  .dark .corner-grid::after {
+    opacity: 0.18;
+    color: #9CA3AF;
+  }
+
+  .corner-grid::before {
+    top: 0;
+    left: 0;
+    /* mask: show only the top-left bracket */
+    -webkit-mask-image: linear-gradient(135deg, black 40%, transparent 100%);
+    mask-image: linear-gradient(135deg, black 40%, transparent 100%);
+  }
+
+  .corner-grid::after {
+    bottom: 0;
+    right: 0;
+    /* mask: show only the bottom-right bracket */
+    -webkit-mask-image: linear-gradient(315deg, black 40%, transparent 100%);
+    mask-image: linear-gradient(315deg, black 40%, transparent 100%);
+  }
+
+  /* ── Glass card ────────────────────────────────── */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+  }
+
+  .dark .glass-card {
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  /* ── Navbar island ─────────────────────────────── */
+  .navbar-island {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .navbar-island {
+    background: rgba(11, 17, 32, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ── Fading mask ───────────────────────────────── */
+  .mask-fading-edge {
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  }
+}
+
+/* ── Keyframes ─────────────────────────────────── */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10%  { transform: translate(-5%, -10%); }
+  20%  { transform: translate(-15%, 5%); }
+  30%  { transform: translate(7%, -25%); }
+  40%  { transform: translate(-5%, 25%); }
+  50%  { transform: translate(-15%, 10%); }
+  60%  { transform: translate(15%, 0%); }
+  70%  { transform: translate(0%, 15%); }
+  80%  { transform: translate(3%, 35%); }
+  90%  { transform: translate(-10%, 10%); }
+}
+
+@keyframes grass-sway {
+  0%, 100% { transform: rotate(-2deg) scaleY(1); }
+  50%       { transform: rotate(2deg) scaleY(0.98); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
