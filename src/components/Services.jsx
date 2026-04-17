@@ -22,7 +22,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="py-20 space-y-12 corner-grid">
       <div className="space-y-16">
         <div className="text-center space-y-4">
           <motion.p 

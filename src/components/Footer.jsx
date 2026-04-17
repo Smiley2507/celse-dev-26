@@ -47,7 +47,7 @@ const Footer = () => {
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-10 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-6 py-10 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center md:items-start gap-1">
           <span className="text-base font-bold tracking-tighter">Celse</span>
           <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
@@ -56,8 +56,9 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col items-center md:items-end gap-3">
-          <div className="flex gap-6 text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary">
+          <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-light-text-secondary dark:text-dark-text-secondary">
             <a href="#about"    className="hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors">About</a>
+            <a href="#services" className="hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors">Services</a>
             <a href="#projects" className="hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors">Projects</a>
             <a href="#tech"     className="hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors">Tech</a>
             <a href="#contact"  className="hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors">Contact</a>
