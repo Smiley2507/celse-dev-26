@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
 import TechStack from './components/TechStack'
+import Services from './components/Services'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -35,6 +36,7 @@ function App() {
       <main className="max-w-6xl mx-auto px-6 pt-20 space-y-32 relative z-10">
         <Hero />
         <About />
+        <Services />
         <Projects />
         <TechStack />
         <Contact />
