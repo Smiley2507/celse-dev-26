@@ -5,12 +5,12 @@ import { RiGithubFill, RiLinkedinBoxFill, RiMailLine, RiDribbbleLine, RiArrowRig
 const socials = [
   { icon: RiLinkedinBoxFill, href: 'https://www.linkedin.com/in/celse-mizeromahire-069421178', name: 'LinkedIn' },
   { icon: RiGithubFill, href: 'https://github.com/Smiley2507', name: 'GitHub' },
-  { icon: RiMailLine, href: `mailto:${import.meta.env.VITE_EMAIL_ADDRESS}`, name: 'Email' },
+  { icon: RiMailLine, href: `mailto:${import.meta.env.EMAIL_ADDRESS}`, name: 'Email' },
   { icon: RiDribbbleLine, href: 'https://dribbble.com/Highrunner01', name: 'Dribbble' },
 ]
 
 const Contact = () => {
-  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || ""
+  const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY || ""
 
   return (
     <section id="contact" className="py-20 corner-grid">
