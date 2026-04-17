@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex flex-col md:flex-row items-center justify-between pt-24 pb-12"
+      className="relative min-h-[90vh] flex flex-col lg:flex-row items-center justify-between pt-24 pb-12"
     >
       {/* Text content */}
       <div className="flex-1 z-10 space-y-7 relative max-w-2xl">
@@ -19,7 +19,7 @@ const Hero = () => {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-light-text-secondary dark:text-dark-text-secondary mb-3">
             Software Engineer
           </p>
-          <h1 className="text-6xl md:text-8xl font-extrabold leading-[1.05] tracking-tighter text-light-text-primary dark:text-dark-text-primary">
+          <h1 className="text-5xl md:text-8xl font-extrabold leading-[1.05] tracking-tighter text-light-text-primary dark:text-dark-text-primary">
             Celse<br />
             <span className="text-accent">Mizeromahire</span>
           </h1>
@@ -57,7 +57,7 @@ const Hero = () => {
 
       {/* Illustration */}
       <motion.div
-        className="flex-1 w-full flex justify-center lg:justify-end relative mt-24 md:mt-0 md:ml-12 lg:ml-20"
+        className="flex-1 w-full flex justify-center lg:justify-end relative mt-24 lg:mt-0 md:ml-12 lg:ml-20"
         style={{ zIndex: 1 }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ const Hero = () => {
          >
              {/* Theme-aware Vector Illustration */}
              <CelseVector 
-              className="max-w-full lg:max-w-none h-auto drop-shadow-2xl w-[400px] md:w-[500px] lg:w-[550px] xl:w-[600px] lg:scale-110 xl:scale-110 origin-right object-contain text-light-text-primary dark:text-dark-text-primary opacity-90 transition-colors duration-500 mb-20"
+              className="max-w-full lg:max-w-none h-auto drop-shadow-2xl w-[450px] lg:w-[600px] xl:w-[650px] lg:scale-100 xl:scale-100 origin-right object-contain text-light-text-primary dark:text-dark-text-primary opacity-90 transition-colors duration-500 mb-20"
              />
 
              {/* Subtle glow behind the illustration for dark mode */}

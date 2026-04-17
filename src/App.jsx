@@ -33,7 +33,7 @@ function App() {
 
       <Navbar toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
 
-      <main className="max-w-6xl mx-auto px-6 pt-20 space-y-32 relative z-10">
+      <main className="max-w-7xl mx-auto px-6 pt-20 space-y-32 relative z-10">
         <Hero />
         <About />
         <Services />

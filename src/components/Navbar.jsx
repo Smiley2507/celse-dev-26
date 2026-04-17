@@ -13,6 +13,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
 
   const navLinks = [
     { name: 'About',    href: '#about' },
+    { name: 'Services', href: '#services' },
     { name: 'Projects', href: '#projects' },
     { name: 'Tech',     href: '#tech' },
     { name: 'Contact',  href: '#contact' },
@@ -26,7 +27,7 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
         className={`pointer-events-auto transition-all duration-300 ${
           scrolled
             ? 'navbar-island rounded-full px-5 py-2.5 mx-4'
-            : 'bg-transparent border-transparent shadow-none w-full max-w-6xl px-6 py-4 rounded-none'
+            : 'bg-transparent border-transparent shadow-none w-full max-w-7xl px-6 py-4 rounded-none'
         }`}
       >
         <div className="flex items-center justify-between gap-8">
